@@ -9,7 +9,7 @@ class StudentForm(ModelForm):
     model = Student
 
     # liste des champs A Editer
-    fields  = (
+    fields  = [
       "first_name",
       "last_name",
       "birth_date",
@@ -17,7 +17,10 @@ class StudentForm(ModelForm):
       "phone",
       "comments",
       "cursus",
-    )
+    ]
+    widgets = {
+        'birth_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+    }
 
 
 class particularcallForm(ModelForm):

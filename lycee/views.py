@@ -32,8 +32,8 @@ def cususStudent (request, student_id):
   context = { 'liste' : result_list}
   return render (request, 'lycee/cursuscall.html', context)
 
-def detail_student(request,cursus_id):
-  result_list = get_object_or_404(Cursus, pk=cursus_id)
+def detail_student(request,student_id):
+  result_list = get_object_or_404(Student, pk=student_id)
   # context
   context = {'liste': result_list,}
   return render (request, 'lycee/student/detail_student.html' , context)
