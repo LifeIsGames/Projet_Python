@@ -26,7 +26,7 @@ def index (request):
   context = { 'liste' : result_list}
   # utilisation du template integrE
   return render (request, 'lycee/index.html', context)
-
+  
 def cususStudent (request, student_id):
   result_list = get_object_or_404(Student, pk=student_id)
   context = { 'liste' : result_list}

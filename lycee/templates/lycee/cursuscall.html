@@ -8,10 +8,11 @@
     {% block content %}
         <div>
           <ul>
-            <li><a href="/lycee/student/{{cursus.id}}">{{liste.first_name}} {{liste.last_name}}</a></li>
+            <li><a href="">{{liste.first_name}} {{liste.last_name}}</a></li>
           </ul>
-        </div>    
+        </div> 
     {% endblock %}
+
 {% else %}
   <p>No student to show.</p>
 {% endif %}
