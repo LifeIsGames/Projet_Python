@@ -2,14 +2,21 @@
 
 {% if liste %}
     {% block title %}
-        <h3>{{liste.cursus}}</h3>
+        <h3>{{liste.cursus}} : Call of roll</h3>
     {% endblock %}
 
     {% block content %}
         <div>
-          <ul>
-            <li><a href="">{{liste.first_name}} {{liste.last_name}}</a></li>
-          </ul>
+          <h4><i>Select date and check if student is missing</i></h4>
+          <div>
+            <label for="date">Date :</label>
+            <input type="date" id="Date" name="Date">
+            <br>
+            <input type="checkbox" id="isMissing" name="isMissing" value="isMissing">
+            <label for="isMissing"> {{liste.first_name }} {{liste.last_name}} </label>
+            <br>
+            <button class="button radius success right" type="submit">Submit</button>
+          </div>
         </div> 
     {% endblock %}
 

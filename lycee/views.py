@@ -26,8 +26,20 @@ def index (request):
   context = { 'liste' : result_list}
   # utilisation du template integrE
   return render (request, 'lycee/index.html', context)
-  
-def cususStudent (request, student_id):
+
+def cursuscall (request):
+  result_list = Student.objects.order_by('first_name')
+  # contexte
+  context = { 'liste' : result_list}
+  # utilisation du template integrE
+  return render (request, '/lycee/cursuscall.html', context)
+
+def cusus_student (request, student_id):
+  result_list = get_object_or_404(Student, pk=student_id)
+  context = { 'liste' : result_list}
+  return render (request, 'lycee/listofstudent.html', context)
+
+def cusus_call (request, student_id):
   result_list = get_object_or_404(Student, pk=student_id)
   context = { 'liste' : result_list}
   return render (request, 'lycee/cursuscall.html', context)
@@ -37,6 +49,10 @@ def detail_student(request,student_id):
   # context
   context = {'liste': result_list,}
   return render (request, 'lycee/student/detail_student.html' , context)
+
+def edit_student(request, student_id):
+    post = get_object_or_404(Student, pk=student_id)
+    return render(request,'lycee/student/edit.html',{'post': post})
 
 class StudentCreateView(CreateView):
   # ref au modEle
@@ -57,3 +73,6 @@ class particularcallView(CreateView):
   form_class = particularcallForm
   # le nom du render
   template_name = "lycee/call.html"
+
+  def get_success_url(self):
+    return reverse ("index", args=(self.object.pk,))

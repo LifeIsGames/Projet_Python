@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% if liste %}
+    {% block title %}
+        <h3>{{liste.cursus}}</h3>
+    {% endblock %}
+
+    {% block content %}
+        <div>
+          <ul>
+            <li><a href="/lycee/student/{{student.id }}">{{liste.first_name}} {{liste.last_name}}</a></li>
+          </ul>
+        </div> 
+    {% endblock %}
+
+{% else %}
+  <p>No student to show.</p>
+{% endif %}

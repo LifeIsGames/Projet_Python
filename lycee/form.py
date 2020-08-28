@@ -22,6 +22,24 @@ class StudentForm(ModelForm):
         'birth_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
     }
 
+class StudentModifyForm(ModelForm):
+
+  class Meta:
+    # la ref du ModEle
+    model = Student
+
+    # liste des champs A Editer
+    fields  = [
+      "first_name",
+      "last_name",
+      "birth_date",
+      "email",
+      "phone",
+      "cursus",
+    ]
+    widgets = {
+        'birth_date': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+    }
 
 class particularcallForm(ModelForm):
 
